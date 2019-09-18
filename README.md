@@ -1,6 +1,7 @@
 # Facenet-With-RealTimeRec
 in development...
-environment
-TF-GPU 1.13.1
-Cuda 10
-and more....
+
+### Environment
+-TF-GPU 1.13.1
+-Cuda 10
+-and more....so lazy to recall it.
