@@ -2,6 +2,8 @@
 in development...
 
 ### Environment
+-Ubuntu 18.04
+
 -TF-GPU 1.13.1
 
 -Cuda 10
