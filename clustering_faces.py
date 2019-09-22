@@ -15,7 +15,7 @@ from sklearn.svm import SVC
 import detect_face
 import facenet
 
-DATA_DIR = './faces'
+DATA_DIR = './pre_process_group_photos'
 
 with tf.Graph().as_default():
     gpu_options = tf.GPUOptions(allow_growth = True)
@@ -55,7 +55,7 @@ with tf.Graph().as_default():
                 embeddings, feed_dict=feed_dict)
 
 names = []
-for i in range(1, 129):
+for i in range(1, 513):
     names.append("col"+str(i))
 
 value = emb_array
@@ -72,10 +72,10 @@ y_kmeans = kmeans.fit_predict(X)
 for i in range(len(paths)):
     print(str(y_kmeans[i]) + "/" + str(y[i].split("/")[-1]))
     try:
-        os.rename(y[i], "./faces/group_photos/" +
+        os.rename(y[i], "./pre_process_group_photos/group_photos/" +
                   str(y_kmeans[i]) + "/" + str(y[i].split("/")[-1]))
     except:
-        os.mkdir("./faces/group_photos/" + str(y_kmeans[i]))
+        os.mkdir("./pre_process_group_photos/group_photos/" + str(y_kmeans[i]))
         print()
-        os.rename(y[i], "./faces/group_photos/" +
+        os.rename(y[i], "./pre_process_group_photos/group_photos/" +
                   str(y_kmeans[i]) + "/" + str(y[i].split("/")[-1]))
