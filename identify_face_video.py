@@ -17,7 +17,7 @@ npy='./npy'
 train_img="./pre_img"
 
 with tf.Graph().as_default():
-    gpu_options = tf.GPUOptions(per_process_gpu_memory_fraction=0.8, allow_growth = True)
+    gpu_options = tf.GPUOptions(allow_growth = True)
     sess = tf.Session(config=tf.ConfigProto(gpu_options=gpu_options, log_device_placement=False))
     with sess.as_default():
         pnet, rnet, onet = detect_face.create_mtcnn(sess, npy)
